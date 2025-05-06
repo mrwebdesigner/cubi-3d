@@ -1,15 +1,41 @@
+let cubi = [];
+let copie = 30;
+
 function setup() {
-  createCanvas(windowWidth, windowHeight);
+  createCanvas(windowWidth, windowHeight, "webgl");
+
+  let distanza = 500;
+  for (let i = 0; i < copie; i++) {
+    let cubo = {
+      x: random(-distanza, distanza),
+      y: random(-distanza, distanza),
+      z: random(-distanza, distanza),
+      size: 500,
+      color: random(["pink", "yellow", "blue"]),
+      rotationFunction: random([rotateX, rotateY]),
+    };
+    cubi.push(cubo);
+  }
 }
 
 function draw() {
   background(220);
-  const s = 100;
+  orbitControl();
+  rotateY(frameCount * 0.001);
+  // noStroke();
 
-  rect(0, 0, s, s);
-  rect(0, height - s, s, s);
-  rect(width - s, 0, s, s);
-  rect(width - s, height - s, s, s);
+  for (let cubo of cubi) {
+    push();
+    translate(cubo.x, cubo.y, cubo.z);
+
+    let velocita = frameCount * 0.005;
+    cubo.rotationFunction(velocita);
+    rotateZ(velocita);
+
+    fill(cubo.color);
+    box(cubo.size);
+    pop();
+  }
 }
 
 function windowResized() {
