@@ -1,8 +1,31 @@
+/**
+ * @typedef {import("./p5/types").Graphics} Graphics
+ *
+ * @typedef {Object} Cubo
+ * @property {number} x
+ * @property {number} y
+ * @property {number} z
+ * @property {number} size
+ * @property {string} color
+ * @property {function} rotationFunction
+ */
+
+//
+
+/** @type {Cubo[]} */
 let cubi = [];
-let copie = 30;
+
+let copie = 50;
+
+/** @type {Graphics} */
+let g;
+
+//
 
 function setup() {
   createCanvas(windowWidth, windowHeight, "webgl");
+
+  g = createGraphics(100, 100);
 
   let distanza = 500;
   for (let i = 0; i < copie; i++) {
@@ -10,7 +33,7 @@ function setup() {
       x: random(-distanza, distanza),
       y: random(-distanza, distanza),
       z: random(-distanza, distanza),
-      size: 500,
+      size: 100,
       color: random(["pink", "yellow", "blue"]),
       rotationFunction: random([rotateX, rotateY]),
     };
@@ -19,10 +42,16 @@ function setup() {
 }
 
 function draw() {
-  background(220);
+  background("white");
   orbitControl();
   rotateY(frameCount * 0.001);
-  // noStroke();
+  noStroke();
+
+  g.background("white");
+  g.text("ciao", 0, g.height);
+  g.textSize(g.height);
+
+  texture(g);
 
   for (let cubo of cubi) {
     push();
@@ -32,7 +61,6 @@ function draw() {
     cubo.rotationFunction(velocita);
     rotateZ(velocita);
 
-    fill(cubo.color);
     box(cubo.size);
     pop();
   }
