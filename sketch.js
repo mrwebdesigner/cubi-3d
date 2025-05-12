@@ -20,6 +20,9 @@ let copie = 50;
 /** @type {Graphics} */
 let g;
 
+/** Immagine*/
+let img = createImg("festival.png");
+
 //
 
 function setup() {
@@ -48,7 +51,7 @@ function draw() {
   noStroke();
 
   g.background("white");
-  g.text("**", 0, g.height);
+  g.text(img, 0, g.height);
   g.textSize(g.height);
 
   texture(g);
