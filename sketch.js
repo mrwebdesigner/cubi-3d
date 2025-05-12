@@ -21,7 +21,7 @@ let copie = 50;
 let g;
 
 /** Immagine*/
-let img = createImg("festival.png");
+let img = createImg("");
 
 //
 
