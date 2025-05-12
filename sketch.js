@@ -21,7 +21,11 @@ let copie = 50;
 let g;
 
 /** Immagine*/
-let img = createImg("");
+let imgFestival;
+
+function preload() {
+  imgFestival = loadImage("festival.png");
+}
 
 //
 
@@ -50,8 +54,8 @@ function draw() {
   rotateY(frameCount * 0.001);
   noStroke();
 
-  g.background("white");
-  g.text(img, 0, g.height);
+  g.background(imgFestival);
+  g.text("Festival", 0, g.height);
   g.textSize(g.height);
 
   texture(g);
