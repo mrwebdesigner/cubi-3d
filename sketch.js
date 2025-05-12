@@ -15,7 +15,7 @@
 /** @type {Cubo[]} */
 let cubi = [];
 
-let copie = 50;
+let copie = 60;
 
 /** @type {Graphics} */
 let g;
@@ -49,13 +49,13 @@ function setup() {
 }
 
 function draw() {
-  background("blue");
+  background("black");
   orbitControl();
   rotateY(frameCount * 0.001);
   noStroke();
 
   g.background(imgFestival);
-  g.text("Festival", 0, g.height);
+  g.text("", 0, g.height);
   g.textSize(g.height / 4);
 
   texture(g);
