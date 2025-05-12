@@ -24,7 +24,7 @@ let g;
 let imgFestival;
 
 function preload() {
-  imgFestival = loadImage("festival.png");
+  imgFestival = loadImage("festival.PNG");
 }
 
 //
