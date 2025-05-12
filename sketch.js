@@ -56,7 +56,7 @@ function draw() {
 
   g.background(imgFestival);
   g.text("Festival", 0, g.height);
-  g.textSize(g.height);
+  g.textSize(g.height / 4);
 
   texture(g);
 
