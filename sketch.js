@@ -42,13 +42,13 @@ function setup() {
 }
 
 function draw() {
-  background("white");
+  background("blue");
   orbitControl();
   rotateY(frameCount * 0.001);
   noStroke();
 
   g.background("white");
-  g.text("ciao", 0, g.height);
+  g.text("**", 0, g.height);
   g.textSize(g.height);
 
   texture(g);
